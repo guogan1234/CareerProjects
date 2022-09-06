@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="./HtmlLibs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./HtmlLibs/jquery-3.2.0/jquery-3.2.0.min.js"></script>
+    <script src="./HtmlLibs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div id="header" class="row">
+            <div class="col-lg-6 col-lg-offset-2">
+                <img src="./images/header2.png" alt="page header">
+            </div>
+            <div class="col-lg-1 col-lg-offset-3" style="height: 90px;">
+                <a>
+                    <span id="showLoginModal" class="label label-primary" data-toggle="modal" data-target="#loginModal">Sign in</span>
+                    <span class="label label-primary" data-toggle="modal" data-target="#registerModal">Sign up</span>
+                    <span id="logout" class="label label-primary">Logout</span>
+                </a>
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button id="loginClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="loginModalLabel">Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group" style="width: 400px">
+                                    <span class="input-group-addon"> User:</span>
+                                    <input id="user" type="text" class="form-control" placeholder="Username" name="user">
+                                    <span class="input-group-addon"> PassWD:</span>
+                                    <input id="password" type="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                                <div id="loginButtons" class="input-group">
+                                    <input id="login" type="button" value="Login" class="form-control">
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="panel panel-default">
+                                        <div id="loginMessage" class="panel-body">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+                <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button id="registerClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="registerModalLabel">Register</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group" style="width: 400px">
+                                    <span class="input-group-addon"> User:</span>
+                                    <input id="registerUser" type="text" class="form-control" placeholder="Username" name="user">
+                                    <span class="input-group-addon"> PassWD:</span>
+                                    <input id="registerPassword" type="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                                <div id="registerButtons" class="input-group">
+                                    <input id="register" type="button" value="Register" class="form-control">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="panel panel-default">
+                                    <div id="registerMessage" class="panel-body">
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+                <span id="loginUser" class="label label-default" hidden="hidden" data-toggle="modal" data-target="#profileModal">$name</span>
+                <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button id="profileModalClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="profileModalLabel">Profile</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h5 class="list-group-item-heading">Saved Hotels:</h5>
+                                <div id="savedHotels" class="list-group">
+                                </div>
+                                <div class="input-group">
+                                    <input id="clearSavedHotels" type="button" value="Clear" class="form-control">
+                                </div>
+                                <h5 class="list-group-item-heading">Visited Expedia Links:</h5>
+                                <div id="visitedLinks" class="list-group">
+                                </div>
+                                <div class="input-group">
+                                    <input id="clearVisitedLinks" type="button" value="Clear" class="form-control">
+                                </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+            <div class="col-lg-6 col-lg-offset-2">
+                <p id="loginInfo"></p>
+            </div>
+        </div>
+        <div id="nav" class="row">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="nav nav-pills">
+                        <li id="li_01" class="active"><a data-toggle="pill" href="#searchHotelPage">Search Hotels</a></li>
+                        <li id="li_02"><a data-toggle="pill" href="#searchReviewPage">Search reviews</a></li>
+                        <li class="disabled"><a id="showHotelPage" data-toggle="pill" href="#hotelPage">Hotel Page</a></li>
+                        <li><a>More</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="body" class="row">
+            <div id="search" class="row">
+                <div id="main" class="col-lg-12 tab-content">
+                    <div id="searchHotelPage" class="tab-pane fade in active">
+                        <input id="city" type="text" class="form-control col-lg-5" placeholder="city">
+                        <input id="hotelWord" type="text" class="form-control col-lg-5" placeholder="keyword">
+                        <button id="searchHotel" type="button" class="btn btn-default">Search Hotels</button>
+                        <ul id="hotelList" class="list-group">
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <img src="./images/1.jpg" width="400" height="300">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <ul class="list-group">
+                                            <li id="hotelId-01" class="list-group-item">Hotel Id</li>
+                                            <li class="list-group-item"><a id="hotelName-01" name="hotelName">Name</a></li>
+                                            <li id="hotelRate-01" class="list-group-item">rating</li>
+                                            <li class="list-group-item"><a id="hotelLink-01" target="_blank">link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <img src="./images/2.jpg" width="400" height="300">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <ul class="list-group">
+                                            <li id="hotelId-02" class="list-group-item">Hotel Id</li>
+                                            <li class="list-group-item"><a id="hotelName-02" name="hotelName">Name</a></li>
+                                            <li id="hotelRate-02" class="list-group-item">rating</li>
+                                            <li class="list-group-item"><a id="hotelLink-02" target="_blank">link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <img src="./images/3.jpg" width="400" height="300">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <ul class="list-group">
+                                            <li id="hotelId-03" class="list-group-item">Hotel Id</li>
+                                            <li class="list-group-item"><a id="hotelName-03" name="hotelName">Name</a></li>
+                                            <li id="hotelRate-03" class="list-group-item">rating</li>
+                                            <li class="list-group-item"><a id="hotelLink-03" target="_blank">link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="pager">
+                            <li><a id="previousHotelPage">Previous</a></li>
+                            <li><a id="nextHotelPage">Next</a></li>
+                        </ul>
+                    </div>
+                    <div id="searchReviewPage" class="tab-pane fade">
+                        <input id="reviewWord" type="text" class="form-control" placeholder="keyword">
+                        <button id="searchReview" type="button" class="btn btn-default">Search Reviews</button>
+                        <table id="reviewTable" class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>hotelId</th>
+                                <th>name</th>
+                                <th>review title</th>
+                                <th>review text</th>
+                                <th>user</th>
+                                <th>date</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <ul class="pager">
+                            <li><a id="previousReviewPage">Previous</a></li>
+                            <li><a id="nextReviewPage">Next</a></li>
+                        </ul>
+                    </div>
+                    <div id="hotelPage" hidden="hidden">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <img src="./images/1.jpg" width="400" height="300">
+                            </div>
+                            <div class="col-lg-7">
+                                <ul class="list-group">
+                                    <li id="pageHotelId" class="list-group-item" hidden="hidden">Hotel Id</li>
+                                    <li id="pageHotelName" class="list-group-item">Name</li>
+                                    <li id="pageHotelAddress" class="list-group-item">Hotel Address</li>
+                                    <li class="list-group-item"><a id="writeReview" data-toggle="modal" href="#reviewModal">Write a review</a></li>
+                                    <li class="list-group-item"><a id="saveHotel" class="btn btn-link">SaveHotel</a></li>
+                                </ul>
+                            </div>
+                            <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button id="reviewClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="reviewModalLabel">Review</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <input id="reviewId" hidden="hidden">
+                                                <input id="hotelId" hidden="hidden">
+                                                <input id="reviewTitle" type="text" class="form-control" placeholder="Write a Title">
+                                                <textarea id="reviewText" class="form-control" rows="10" placeholder="Write Text"></textarea>
+                                                <label>Rate:</label>
+                                                <select id="reviewRate" class="form-control">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                            <div class="btn-group">
+                                                <button id="reviewSave" type="button" class="btn btn-default" hidden="hidden">Update</button>
+                                                <button id="reviewAdd" type="button" class="btn btn-default">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal -->
+                            </div>
+                        </div>
+                        <table id="hotelPageTable" class="table table-striped">
+                            <tr>
+                                <th hidden="hidden">ReviewId</th>
+                                <th>name</th>
+                                <th>review title</th>
+                                <th>review text</th>
+                                <th>user</th>
+                                <th>date</th>
+                                <th>operations</th>
+                            </tr>
+                        </table>
+                        <ul class="pager">
+                            <li><a id="previousHotelReviews">Previous</a></li>
+                            <li><a id="nextHotelReviews">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="reserve" class="row">
+                <div class="col-lg-12" style="background-color: #dedef8;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/ajax.js"></script>
+    <script src="js/searchHotel.js"></script>
+    <script src="js/searchReview.js"></script>
+    <script src="js/homePage.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/saveHotel.js"></script>
+    <script src="js/likeReview.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/visitLink.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="./HtmlLibs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./HtmlLibs/jquery-3.2.0/jquery-3.2.0.min.js"></script>
+    <script src="./HtmlLibs/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div id="header" class="row">
+            <div class="col-lg-6 col-lg-offset-2">
+                <img src="./images/header.png" alt="page header" title="www.baidu.com">
+            </div>
+            <div class="col-lg-1 col-lg-offset-3" style="background-color: #000000; height: 90px;">
+                <a href="/login">
+                    <span class="label label-primary" data-toggle="modal" data-target="#myModal">Sign in</span>
+                </a>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
+                            </div>
+                            <div class="modal-body">Modal Body</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Update</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+                <span id="user" class="label label-default" hidden="hidden">$name</span>
+            </div>
+        </div>
+        <div id="nav" class="row">
+            <div class="col-lg-12" style="background-color: #dedef8;">
+                <ul class="nav nav-pills nav-justified">
+                    <li id="li_01" class="active"><a>Search Hotels</a></li>
+                    <li id="li_02" class="active"><a>Search reviews</a></li>
+                    <li id="li_03" class="active"><a>Write a review</a></li>
+                    <li class="active"><a>Travel Forums</a></li>
+                    <li class="active"><a>More</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="body" class="row">
+            <div id="search" class="row">
+                <div id="main" class="col-lg-12" style="background-color: #dedef8; height: 450px;">
+                    <form id="searchForm" action="www.baidu.com">
+                        <span>Search:</span>
+                        <input type="search" placeholder="Where to?">
+                    </form>
+                </div>
+            </div>
+            <div id="reserve" class="row">
+                <div class="col-lg-12" style="background-color: #dedef8;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="js/hotel.js"></script>
+<script src="js/review.js"></script>
+<script src="js/ajax.js"></script>
+<script>
+    var user = document.getElementById("user");
+    var username = user.innerHTML;
+    alert(username);
+    if(username == "$name"){
+        user.innerHTML="";
+    }
+</script>
+</body>
+</html>
