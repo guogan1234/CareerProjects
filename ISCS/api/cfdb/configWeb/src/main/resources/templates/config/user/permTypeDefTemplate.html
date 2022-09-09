@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.permTypeId}}">
+            <td>{{value.permTypeId}}</td>
+            <td><a href="#" name="permTypeName" data-operate="detail" data-toggle="modal" data-target="#permTypeDefModal" data-idp="permTypeId" data-id="{{value.permTypeId}}">{{value.permTypeName}}</a></td>
+            <td>
+                <a href="#" name="del" data-id="{{value.permTypeId}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#permTypeDefModal" data-idp="permTypeId" data-id="{{value.permTypeId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

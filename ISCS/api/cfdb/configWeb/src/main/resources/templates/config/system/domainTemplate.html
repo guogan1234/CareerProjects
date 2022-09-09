@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.domainId}}">
+            <td>{{value.domainId}}</td>
+            <td>{{value.domainLabel}}</td>
+            <td><a href="#" name="domainName" data-operate="detail" data-toggle="modal" data-target="#domainModal" data-idp="domainId" data-id="{{value.domainId}}">{{value.domainName}}</a></td>
+            <td>
+                {{if value.domainType==0}}
+                  中心
+                {{else if value.domainType==1}}
+                  车站
+                {{else}}
+                  预留
+                {{/if}}
+            </td>
+            <td>
+                <a href="#" name="del" data-id="{{value.domainId}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#domainModal" data-idp="domainId" data-id="{{value.domainId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

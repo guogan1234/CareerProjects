@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<aside id="left-panel" th:fragment="menu">
+    <div class="login-info">
+                <span>
+                    <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+                        <img th:src="@{/smartadmin/img/avatars/sunny.png}" class="online"/>
+                          <span sec:authentication="name"></span>
+                    </a>
+                </span>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a th:href="@{/dev/devconf}" id="sysAll"><i class="fa fa-lg fa-fw fa-home"></i> <span
+                        class="menu-item-parent">设备管理</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">用户管理</span></a>
+                <ul style="display:none;">
+                    <li>
+                        <a th:href="@{/user/toList}">用户列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/department/toList}">部门列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/userGroup/toList}">用户组列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/user/toPermTypeDefList}">权限类型列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/permSecurity/toList}">权限策略列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/permFunc/toList}">权限列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/permUserDepartment/toList}">用户和部门关系列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/permUserGroup/toList}">用户和用户组关系列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/permGroupStation/toList}">用户组和车站关系列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/permGroupRealation/toList}">用户组与普通权限关联关系列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/permSpecGroupRegionRealation/toList}">用户组与特殊权限所属责任区关联关系列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/permSpecGroupStationRealation/toList}">用户组与特殊权限所属车站关联关系列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">报警管理</span></a>
+                <ul style="display:none;">
+                    <li>
+                        <a th:href="@{/alarm/toAlarmActList}">报警动作列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/alarm/toAlarmLevelList}">报警等级列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/alarm/toAlarmTypeList}">报警类型列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/alarm/toAlarmSourceList}">报警来源列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/alarm/toAlarmInfoList}">报警信息列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">系统数据</span></a>
+                <ul style="display:none;">
+                    <li>
+                        <a th:href="@{/domain/toList}">域列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/station/toList}">车站列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/proSystem/toList}">专业列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/node/toList}">节点列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/process/toList}">进程列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">基础数据</span></a>
+                <ul style="display:none;">
+                    <li>
+                        <a th:href="@{/diText/toList}">离散量文本列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/doGrp/toList}">离散输出组列表</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/region/toList}">责任区域</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/unit/toList}">单位定义</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/devType/toList}">设备类型</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu">
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>
+</aside>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+         <tr data-id = "{{value.regionId}}">
+            <td>{{value.regionId}}</td>
+             <td>{{value.regionLabel}}</td>
+            <td ><a href="#" data-toggle="modal" data-operate="detail" data-target="#regionModal" data-idp="regionId" data-id="{{value.regionId}}">{{value.regionName}}</a></td>
+             <td>{{value.proSystemTbl.proSystemName}}</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.regionId}}">删除 </a>|
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#regionModal" data-idp="regionId" data-id="{{value.regionId}}"> 修改</a>
+            </td>
+         </tr>;
+    {{/each}}
+</script>
+</body>
+</html>

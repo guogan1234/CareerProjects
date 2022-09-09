@@ -1,0 +1,23 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
+set(CMAKE_DISABLE_SOURCE_CHANGES  ON)
+
+if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
+  message(SEND_ERROR "In-source builds are not allowed.")
+endif ()
+
+#set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_COLOR_MAKEFILE   ON)
+
+# 默认的安装路径 src/out
+SET(CMAKE_INSTALL_PREFIX $ENV{ISCS_SRC_HOME}/out)
+
+if(UNIX)
+    ADD_SUBDIRECTORY(cfdb/cfdb_api_rtdb)
+endif()
+ADD_SUBDIRECTORY(cfdb/cfdb_api_cmn)
+ADD_SUBDIRECTORY(mq/c)
+ADD_SUBDIRECTORY(tsdb/c)
+ADD_SUBDIRECTORY(tsdb/tsdb_api)
+ADD_SUBDIRECTORY(rtdb_api)

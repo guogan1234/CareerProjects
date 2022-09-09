@@ -1,0 +1,15 @@
+全量备份:
+tsdb_svr backup -portable -database tsdb_iscs -host 127.0.0.1:8088 backup_files
+
+全量还原:
+tsdb_svr restore -portable -db tsdb_iscs backup_files
+
+增量备份:
+tsdb_svr backup -portable -database tsdb_iscs -host 127.0.0.1:8088 -since 2018-08-24T08:12:23Z backup_files
+
+增量还原:
+tsdb_svr restore -portable -db tsdb_iscs -newdb tsdb_iscs_bak backup_files
+使用tsdb_cli命令进入命令行控制台，执行以下命令
+use tsdb_iscs_bak
+SELECT * INTO tsdb_iscs..:MEASUREMENT FROM /.*/ GROUP BY *
+drop tsdb_iscs_bak

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.userId}}">
+            <td>{{value.userId}}</td>
+            <td><a href="#" name="userName" data-operate="detail" data-toggle="modal" data-target="#userModal" data-idp="userId" data-id="{{value.userId}}">{{value.userName}}</a></td>
+            <td>{{value.userAlias}}</td>
+            <td>{{value.userPassword}}</td>
+            <td>{{value.userCreateDate}}</td>
+            <td>{{value.userExpireDate}}</td>
+            <td>{{value.userDesc}}</td>
+            <td>
+                {{if value.userIfLock ==0 || value.userIfLock=="" || value.userIfLock==null}}
+                   否
+                {{else}}
+                  是
+                {{/if}}
+            </td>
+            <td>{{value.userLockTime}}</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.userId}}">删除 </a>|
+                <a href="#" name="forbid" data-id="{{value.userId}}">失效</a>|
+                {{if value.userIfLock==1}}
+                <a href="#" name="cancelLock" data-id="{{value.userId}}">取消锁定</a>|
+                {{else}}
+                <a href="#" name="lock" data-id="{{value.userId}}">锁定</a>|
+                {{/if}}
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#userModal" data-idp="userId" data-id="{{value.userId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

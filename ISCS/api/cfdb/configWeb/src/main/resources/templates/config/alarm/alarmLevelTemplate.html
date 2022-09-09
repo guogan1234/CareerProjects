@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.levelId}}">
+            <td>{{value.levelId}}</td>
+            <td><a href="#" name="levelName" data-operate="detail" data-toggle="modal" data-target="#alarmLevelModal" data-idp="levelId" data-id="{{value.levelId}}">{{value.levelName}}</a></td>
+            <td>{{value.priority}}</td>
+            <td>{{value.alarmAct}}</td>
+            <td>{{value.soundFile}}</td>
+            <td>
+                <a href="#" name="del" data-operate="del" data-id="{{value.levelId}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#alarmLevelModal" data-idp="levelId" data-id="{{value.levelId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

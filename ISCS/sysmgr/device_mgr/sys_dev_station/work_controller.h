@@ -1,0 +1,3 @@
+
+int startWork();
+int stopWork();

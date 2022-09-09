@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+         <tr data-id = "{{value.doGrpLabel}},{{value.doOrder}}">
+            <td>{{value.proSystemTbl.proSystemName}}</td>
+             <td>{{value.doGrpLabel}}</td>
+             <td>{{value.doNumber}}</td>
+             <td>{{value.doOrder}}</td>
+            <td ><a href="#" data-toggle="modal" data-operate="detail" data-target="#doGrpModal" data-idp="doGrpLabel,doOrder" data-id="{{value.doGrpLabel}},{{value.doOrder}}">{{value.doName}}</a></td>
+             <td>
+                 {{if value.doType==0 }}
+                 自复位开(trip)
+                 {{else if value.doType==1}}
+                 自复位关（close）
+                 {{else if value.doType==2}}
+                 上升沿 （pulse on）
+                 {{else if value.doType==3}}
+                 下降沿（pulse off)
+                 {{else if value.doType==4}}
+                 常开（latch on）
+                 {{else if value.doType==5}}
+                 常闭 （latch off）
+                 {{/if}}
+             </td>
+             <td>{{value.doValue}}</td>
+             <td>{{value.doAllow}}</td>
+             <td>{{value.doIndex}}</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.doGrpLabel}},{{value.doOrder}}">删除 </a>|
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#doGrpModal" data-idp="doGrpLabel,doOrder" data-id="{{value.doGrpLabel}},{{value.doOrder}}"> 修改</a>|
+                <a href="#" data-toggle="modal" data-operate="config" data-donumber="{{value.doNumber}}" data-doallow="{{value.doAllow}}" data-dovalue="{{value.doValue}}" data-target="#configModal" data-id="{{value.doGrpLabel}},{{value.doOrder}}"> 配置</a>
+            </td>
+         </tr>;
+    {{/each}}
+</script>
+</body>
+</html>

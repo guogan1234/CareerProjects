@@ -1,0 +1,48 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.2.61'
+}
+
+group 'com.avp.tsdb'
+version '2.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    kotlinVersion = '1.2.61'
+    jacksonVersion = '2.9.6'
+}
+
+apply plugin: 'application'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonVersion}"
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile "com.squareup.okhttp3:okhttp:3.11.0"
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        allWarningsAsErrors = true
+        freeCompilerArgs = ["-Xjsr305=strict"]
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    enabled = true
+    dirMode = 0755
+    fileMode = 0444
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+mainClassName = 'com.avp.tsdb.verifier.ApplicationKt'

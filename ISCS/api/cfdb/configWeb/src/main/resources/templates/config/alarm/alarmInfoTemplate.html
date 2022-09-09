@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.label}},{{value.second}},{{value.msecond}}">
+            <td>{{value.label}}({{value.second}}+{{value.msecond}})</td>
+            <td><a href="#" name="alarmType" data-operate="detail" data-toggle="modal" data-target="#alarmInfoModal" data-idp="label,second,msecond" data-id="{{value.label}},{{value.second}},{{value.msecond}}">{{value.typeName}}</a></td>
+            <td>{{value.domainName}}</td>
+            <td>{{value.stationName}}</td>
+            <td>{{value.regionName}}</td>
+            <td>{{value.devTypeLabel}}</td>
+            <td>{{value.ctrlTransGrpLabel}}</td>
+            <td>
+                {{if value.restrain}}
+                  是
+                {{else}}
+                  否
+                {{/if}}
+            </td>
+            <td>{{value.picName}}</td>
+            <td>
+                {{if value.recovery}}
+                是
+                {{else}}
+                否
+                {{/if}}
+            </td>
+            <td>
+                {{if value.delOnAck==0}}
+                确认后删除
+                {{else if value.delOnAck==1}}
+                恢复状态确认后删除
+                {{else}}
+                恢复状态确认后不删除
+                {{/if}}
+            </td>
+            <td>
+                {{if value.replaceAlarm}}
+                是
+                {{else}}
+                否
+                {{/if}}
+            </td>
+            <td>{{value.levelName}}</td>
+            <td>{{value.content}}</td>
+            <td>
+                {{if value.acked}}
+                是
+                {{else}}
+                否
+                {{/if}}
+            </td>
+            <td>
+                <a href="#" name="del" data-id="{{value.label}},{{value.second}},{{value.msecond}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#alarmInfoModal" data-idp="label,second,msecond" data-id="{{value.label}},{{value.second}},{{value.msecond}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

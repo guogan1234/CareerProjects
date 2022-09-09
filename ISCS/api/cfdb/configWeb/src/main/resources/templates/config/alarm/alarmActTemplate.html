@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.actId}}">
+            <td>{{value.actId}}</td>
+            <td><a href="#" name="actName" data-operate="detail" data-toggle="modal" data-target="#alarmActModal" data-idp="actId" data-id="{{value.actId}}">{{value.actName}}</a></td>
+            <td>
+                <a href="#" name="del" data-id="{{value.actId}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#alarmActModal" data-idp="actId" data-id="{{value.actId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

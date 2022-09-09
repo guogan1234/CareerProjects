@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+    <tr data-id="{{value.relationId}}">
+
+        <td>{{value.groupId}}</td>
+        <td>{{value.groupName}}</td>
+        <td>{{value.permId}}</td>
+        <td>{{value.permName}}</td>
+        <td>{{value.permDefine}}</td>
+        <td>{{value.regionId}}</td>
+        <td>{{value.regionName}}</td>
+
+        <td>
+            <a href="#" name="del" data-id="{{value.relationId}}">删除 </a>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+</body>
+</html>

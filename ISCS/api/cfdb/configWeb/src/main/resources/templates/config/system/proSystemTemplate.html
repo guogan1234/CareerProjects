@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.proSystemId}}">
+            <td>{{value.proSystemId}}</td>
+            <td>{{value.proSystemLabel}}</td>
+            <td><a href="#" name="proSystemName" data-operate="detail" data-toggle="modal" data-target="#proSystemModal" data-idp="proSystemId" data-id="{{value.proSystemId}}">{{value.proSystemName}}</a></td>
+            <td>
+                <a href="#" name="del" data-id="{{value.proSystemId}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#proSystemModal" data-idp="proSystemId" data-id="{{value.proSystemId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

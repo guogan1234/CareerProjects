@@ -1,0 +1,1 @@
+alter table conf.perm_func_def add column perm_type_id integer NOT NULL

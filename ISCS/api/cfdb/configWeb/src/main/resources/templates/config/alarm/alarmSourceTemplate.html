@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.sourceId}}">
+            <td>{{value.sourceId}}</td>
+            <td><a href="#" name="sourceName" data-operate="detail" data-toggle="modal" data-target="#alarmSourceModal" data-idp="sourceId" data-id="{{value.sourceId}}">{{value.sourceName}}</a></td>
+            <td>{{value.typeName}}</td>
+            <td>{{value.levelName}}</td>
+            <td>
+                {{if value.isReplaceAlarm}}
+                  是
+                {{else}}
+                  否
+                {{/if}}
+            </td>
+            <td>
+                {{if value.isDelOnAck==0}}
+                确认后删除
+                {{else if value.isDelOnAck==1}}
+                恢复状态确认后删除
+                {{else}}
+                恢复状态确认后不删除
+                {{/if}}
+            </td>
+            <td>
+                <a href="#" name="del" data-id="{{value.sourceId}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#alarmSourceModal" data-idp="sourceId" data-id="{{value.sourceId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

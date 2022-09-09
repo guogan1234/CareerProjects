@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+         <tr data-id = "{{value.diTextLabel}},{{value.diValue}}">
+            <td>{{value.diTextLabel}}</td>
+             <td>{{value.diValue}}</td>
+            <td ><a href="#" data-toggle="modal" data-operate="detail" data-target="#diTextModal" data-idp="diTextLabel,diValue" data-id="{{value.diTextLabel}},{{value.diValue}}">{{value.diText}}</a></td>
+             <td>
+                 {{if value.alarmMode==0 }}
+                 报警+事件
+                 {{else if value.alarmMode==1}}
+                 报警返回（即报警恢复）+事件
+                 {{else if value.alarmMode==2}}
+                 仅事件
+                 {{else if value.alarmMode==3}}
+                 无
+                 {{/if}}
+             </td>
+            <td>{{value.proSystemTbl.proSystemName}}</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.diTextLabel}},{{value.diValue}}">删除 </a>|
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#diTextModal" data-idp="diTextLabel,diValue" data-id="{{value.diTextLabel}},{{value.diValue}}"> 修改</a>
+            </td>
+         </tr>;
+    {{/each}}
+</script>
+</body>
+</html>

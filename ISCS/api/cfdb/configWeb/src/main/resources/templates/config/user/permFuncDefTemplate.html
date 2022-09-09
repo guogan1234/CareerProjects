@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.permId}}">
+            <td>{{value.permId}}</td>
+            <td><a href="#" name="permName" data-operate="detail" data-toggle="modal" data-target="#permFuncModal" data-idp="permId" data-id="{{value.permId}}">{{value.permName}}</a></td>
+            <td>{{value.permTypeName}}</td>
+            <td>{{value.permDefine}}</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.permId}}">删除 </a>|
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#permFuncModal" data-idp="permId" data-id="{{value.permId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

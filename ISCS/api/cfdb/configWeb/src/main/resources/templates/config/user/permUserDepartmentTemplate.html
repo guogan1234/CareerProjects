@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.relationId}}">
+            <td>{{value.deptId}}</td>
+            <td>{{value.deptName}}</td>
+            <td>{{value.userId}}</td>
+            <td>{{value.userName}}</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.relationId}}">删除 </a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

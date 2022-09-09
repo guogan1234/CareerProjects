@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.procId}}">
+            <td><a href="#" name="" data-operate="detail" data-toggle="modal" data-target="#processModal" data-idp="procId" data-id="{{value.procId}}">{{value.procAlias}}</a></td>
+            <td>{{value.commandName}}</td>
+            <td>{{value.commandPara}}</td>
+            <td>{{value.runOrder}}</td>
+            <td>{{value.procType}}</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.procId}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#processModal" data-idp="procId" data-id="{{value.procId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

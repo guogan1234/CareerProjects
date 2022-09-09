@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+    <tr data-id="{{value.relationId}}">
+        {{ if value.ifLead ==1}}
+        <td style="background-color: yellow;">{{value.groupId}}</td>
+        {{ else }}
+        <td>{{value.groupId}}</td>
+        {{/if}}
+
+        <td>{{value.groupName}}</td>
+        <td>{{value.userId}}</td>
+        <td>{{value.userName}}</td>
+        <td>
+            {{ if value.ifLead ==1}}
+            是
+            {{ else }}
+            否
+            {{/if}}
+        </td>
+        <td>
+            <a href="#" name="del" data-id="{{value.relationId}}">删除 </a>
+            {{ if value.ifLead ==1}}
+            <a href="#" name="cancelLead" data-id="{{value.relationId}},{{value.groupId}}">撤销组长</a>
+            {{ else }}
+            <a href="#" name="putLead" data-id="{{value.relationId}},{{value.groupId}}">设为组长</a>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</script>
+</body>
+</html>

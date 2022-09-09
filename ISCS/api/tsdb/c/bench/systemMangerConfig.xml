@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SYSTEMCFG>
+	<LOCAL_DOMAIN_ID>1</LOCAL_DOMAIN_ID>
+	<SERVER_LIST>
+		<DOMAIN_SERVER domain_id="1">
+			<SERVER server_id="1">
+				<NET1_IP>127.0.0.1</NET1_IP>
+				<NET2_IP>127.0.0.1</NET2_IP>
+			</SERVER>
+			<SERVER server_id="2">
+				<NET1_IP>127.0.0.1</NET1_IP>
+				<NET2_IP>127.0.0.1</NET2_IP>
+			</SERVER>
+		</DOMAIN_SERVER>
+		<DOMAIN_SERVER domain_id="2">
+			<SERVER server_id="1">
+				<NET1_IP>192.168.0.11</NET1_IP>
+				<NET2_IP>192.168.1.11</NET2_IP>
+			</SERVER>
+			<SERVER server_id="2">
+				<NET1_IP>192.168.0.12</NET1_IP>
+				<NET2_IP>192.168.1.12</NET2_IP>
+			</SERVER>
+		</DOMAIN_SERVER>
+	</SERVER_LIST>
+	<MODEL_LIST>
+		<!--系统管理-->
+		<MODEL name = "SystemMgr">
+			<!--域配置-->
+			<DOMAINS>
+				<DOMAIN id = "1">
+					<NAME>hebbz</NAME>
+					<NAME_CH>"哈尔滨北站"</NAME_CH>
+					<DOMAIN_TYPE>0</DOMAIN_TYPE>
+				</DOMAIN>
+				<DOMAIN id = "2">
+					<NAME>zydjz</NAME>
+					<NAME_CH>"中央大街站"</NAME_CH>
+					<!--0 非中心站 1 中心站-->
+					<DOMAIN_TYPE>1</DOMAIN_TYPE>
+				</DOMAIN>
+			</DOMAINS>
+			<!--节点配置-->
+			<NODES>
+				<NODE id = "1" domain_id = "1">
+					<!--1 实时服务器 2 历史服务器 3 操作工作站 -->
+					<TYPE>1</TYPE>
+					<NAME>HEBBZ_SERVER_01</NAME>
+					<NAME_CH>"哈尔滨北站1号服务器"</NAME_CH>
+					<!--0 正常 1 离线-->
+					<STATUS>0</STATUS>
+					<NIC_NUM>2</NIC_NUM>
+					<NIC1_NAME>eth0</NIC1_NAME>
+					<NIC1_NETMASK>255.255.255.0</NIC1_NETMASK>
+					<NIC1_ADDRESS>130.1.15.1</NIC1_ADDRESS>
+					<NIC2_NAME>eth1</NIC2_NAME>
+					<NIC2_NETMASK>255.255.255.0</NIC2_NETMASK>
+					<NIC2_ADDRESS>130.1.16.1</NIC2_ADDRESS>
+					<NET_STATUS>0</NET_STATUS>
+					<DEV>H3C D9</DEV>
+					<OS>Redhat 7.4</OS>
+					<LOCATION>HEBBZ</LOCATION>
+					<DOMAIN_INFO>1</DOMAIN_INFO>
+				</NODE>
+				<NODE id = "2" domain_id = "1">
+					<!--1 实时服务器 2 历史服务器 3 操作工作站 -->
+					<TYPE>1</TYPE>
+					<NAME>HEBBZ_SERVER_02</NAME>
+					<NAME_CH>"哈尔滨北站2号服务器"</NAME_CH>
+					<!--0 正常 1 离线-->
+					<STATUS>0</STATUS>
+					<NIC_NUM>2</NIC_NUM>
+					<NIC1_NAME>eth0</NIC1_NAME>
+					<NIC1_NETMASK>255.255.255.0</NIC1_NETMASK>
+					<NIC1_ADDRESS>130.1.15.2</NIC1_ADDRESS>
+					<NIC2_NAME>eth1</NIC2_NAME>
+					<NIC2_NETMASK>255.255.255.0</NIC2_NETMASK>
+					<NIC2_ADDRESS>130.1.16.2</NIC2_ADDRESS>
+					<NET_STATUS>0</NET_STATUS>
+					<DEV>H3C D9</DEV>
+					<OS>Redhat 7.4</OS>
+					<LOCATION>HEBBZ</LOCATION>
+					<DOMAIN_INFO>1</DOMAIN_INFO>
+				</NODE>
+				<NODE id = "3" domain_id = "1">
+					<!--1 实时服务器 2 历史服务器 3 操作工作站 -->
+					<TYPE>3</TYPE>
+					<NAME>HEBBZ_WS_01</NAME>
+					<NAME_CH>"哈尔滨本站1号工作站"</NAME_CH>
+					<!--0 正常 1 离线-->
+					<STATUS>0</STATUS>
+					<NIC_NUM>2</NIC_NUM>
+					<NIC1_NAME>eth0</NIC1_NAME>
+					<NIC1_NETMASK>255.255.255.0</NIC1_NETMASK>
+					<NIC1_ADDRESS>130.1.15.11</NIC1_ADDRESS>
+					<NIC2_NAME>eth1</NIC2_NAME>
+					<NIC2_NETMASK>255.255.255.0</NIC2_NETMASK>
+					<NIC2_ADDRESS>130.1.16.11</NIC2_ADDRESS>
+					<NET_STATUS>0</NET_STATUS>
+					<DEV>DELL</DEV>
+					<OS>WINDOWS 10</OS>
+					<LOCATION>HEBBZ</LOCATION>
+					<DOMAIN_INFO>1</DOMAIN_INFO>
+				</NODE>
+					<NODE id = "4" domain_id = "1">
+					<!--1 实时服务器 2 历史服务器 3 操作工作站 -->
+					<TYPE>3</TYPE>
+					<NAME>HEBBZ_WS_02</NAME>
+					<NAME_CH>"哈尔滨本站2号工作站"</NAME_CH>
+					<!--0 正常 1 离线-->
+					<STATUS>0</STATUS>
+					<NIC_NUM>2</NIC_NUM>
+					<NIC1_NAME>eth0</NIC1_NAME>
+					<NIC1_NETMASK>255.255.255.0</NIC1_NETMASK>
+					<NIC1_ADDRESS>130.1.15.12</NIC1_ADDRESS>
+					<NIC2_NAME>eth1</NIC2_NAME>
+					<NIC2_NETMASK>255.255.255.0</NIC2_NETMASK>
+					<NIC2_ADDRESS>130.1.16.12</NIC2_ADDRESS>
+					<NET_STATUS>0</NET_STATUS>
+					<DEV>DELL</DEV>
+					<OS>WINDOWS 10</OS>
+					<LOCATION>HEBBZ</LOCATION>
+					<DOMAIN_INFO>1</DOMAIN_INFO>
+				</NODE>
+			</NODES>
+			<!--进程信息-->
+			<PROCESSES>
+				<PROCESS id = "1">
+					<ALIAS>SYSTEMMGR</ALIAS>
+					<COMMAND>system_mgr</COMMAND>
+					<INSTANCE_NUM>2</INSTANCE_NUM>
+					<START_TYPE>0</START_TYPE>
+					<AUTORUN>0</AUTORUN>
+					<CYCLE_START>0</CYCLE_START>
+					<CYCLE_PERIOD>0</CYCLE_PERIOD>
+					<OFFLINE_RUN>0</OFFLINE_RUN>
+					<DUTY_RUN>0</DUTY_RUN>
+					<STANDBY_RUN>0</STANDBY_RUN>
+					<RUN_ORDER>1</RUN_ORDER>
+					<REPORT_TYPE>0</REPORT_TYPE>
+					<FILE_PATH>/nrts/iscs/bin</FILE_PATH>
+					<PARA>start down</PARA>
+					<DESCRIPTION>system manager process</DESCRIPTION>
+					<RUN_STYLE>0</RUN_STYLE>
+					<PROC_TYPE>0</PROC_TYPE>
+				</PROCESS>
+				<PROCESS id = "2">
+					<ALIAS>MQ</ALIAS>
+					<COMMAND>mq</COMMAND>
+					<INSTANCE_NUM>1</INSTANCE_NUM>
+					<START_TYPE>0</START_TYPE>
+					<AUTORUN>0</AUTORUN>
+					<CYCLE_START>0</CYCLE_START>
+					<CYCLE_PERIOD>0</CYCLE_PERIOD>
+					<OFFLINE_RUN>0</OFFLINE_RUN>
+					<DUTY_RUN>0</DUTY_RUN>
+					<STANDBY_RUN>0</STANDBY_RUN>
+					<RUN_ORDER>2</RUN_ORDER>
+					<REPORT_TYPE>0</REPORT_TYPE>
+					<FILE_PATH>/nrts/iscs/bin</FILE_PATH>
+					<PARA>start down</PARA>
+					<DESCRIPTION>mq process</DESCRIPTION>
+					<RUN_STYLE>1</RUN_STYLE>
+					<PROC_TYPE>0</PROC_TYPE>
+				</PROCESS>
+			</PROCESSES>
+			<!--域进程分布信息-->
+			<DOMAIN_PROCESS>
+				<DOMAIN id = "1">
+					<PROCESS_SUB>11111111</PROCESS_SUB>
+				</DOMAIN>
+				<DOMAIN id = "2">
+					<PROCESS_SUB>0101010</PROCESS_SUB>
+				</DOMAIN>
+			</DOMAIN_PROCESS>
+		</MODEL>
+		<!--中间件-->
+		<MODEL name = "mq">
+			<DOMAIN_SERVER domain_id="1">
+				<SERVER server_id="1">
+					<SCHEMA>tcp</SCHEMA>
+					<USERNAME>admin</USERNAME>
+					<PASSWORD>123456</PASSWORD>
+					<POOL_SIZE>20</POOL_SIZE>
+					<PORT>6379</PORT>
+					<TIMEOUT>2000</TIMEOUT>
+					<HEART_BEAT_INTERNAL>1000</HEART_BEAT_INTERNAL>
+				</SERVER>
+				<SERVER server_id="2">
+					<SCHEMA>tcp</SCHEMA>
+					<USERNAME>admin</USERNAME>
+					<PASSWORD>123456</PASSWORD>
+					<POOL_SIZE>20</POOL_SIZE>
+					<PORT>6379</PORT>
+					<TIMEOUT>2000</TIMEOUT>
+					<HEART_BEAT_INTERNAL>1000</HEART_BEAT_INTERNAL>
+				</SERVER>
+			</DOMAIN_SERVER>
+			<CLIENT_API>
+				<LOG>
+					<LOG_FILE>mq-sdk.log</LOG_FILE>
+					<LOG_LEVEL>1</LOG_LEVEL>
+					<FILE_MAX_SIZE_MB>10</FILE_MAX_SIZE_MB>
+					<ROLLING_FILE_NUM>10</ROLLING_FILE_NUM>
+				</LOG>
+			</CLIENT_API>
+		</MODEL>
+
+		<!--实时库-->
+		<MODEL name = "rtdb-cli">
+			<DOMAIN_SERVER domain_id="1">
+				<SERVER server_id="1">
+					<PORT>8888</PORT>
+					<USERNAME>rtdb-cli</USERNAME>
+					<PASSWORD>rtdb-cli</PASSWORD>
+				</SERVER>
+				<SERVER server_id="2">
+					<PORT>8889</PORT>
+					<USERNAME>rtdb-cli</USERNAME>
+					<PASSWORD>rtdb-cli</PASSWORD>
+				</SERVER>
+			</DOMAIN_SERVER>
+			<CLIENT_API>
+				<LOG>
+					<LOG_FILE>rtdb-cli-sdk.log</LOG_FILE>
+					<LOG_LEVEL>1</LOG_LEVEL>
+					<FILE_MAX_SIZE_MB>10</FILE_MAX_SIZE_MB>
+					<ROLLING_FILE_NUM>1</ROLLING_FILE_NUM>
+				</LOG>
+			</CLIENT_API>
+		</MODEL>
+		<MODEL name="rtdb-fes-cli">
+			<DOMAIN_SERVER domain_id="1">
+				<SERVER server_id="1">
+					<PORT>9999</PORT>
+					<USERNAME>rtdb-fes-cli</USERNAME>
+					<PASSWORD>rtdb-fes-cli</PASSWORD>
+				</SERVER>
+				<SERVER server_id="2">
+					<PORT>9998</PORT>
+					<USERNAME>rtdb-fes-cli</USERNAME>
+					<PASSWORD>rtdb-fes-cli</PASSWORD>
+				</SERVER>
+			</DOMAIN_SERVER>
+			<CLIENT_API>
+				<LOG>
+					<LOG_FILE>rtdb-fes-cli-sdk.log</LOG_FILE>
+					<LOG_LEVEL>1</LOG_LEVEL>
+					<FILE_MAX_SIZE_MB>10</FILE_MAX_SIZE_MB>
+					<ROLLING_FILE_NUM>1</ROLLING_FILE_NUM>
+				</LOG>
+			</CLIENT_API>
+		</MODEL>
+		<!--配置库-->
+		<MODEL name = "confdb">
+			<DOMAIN_SERVER domain_id = "1" domain_name = "xxx-lc">
+				<SERVER>
+					<HTTP_URL>http://127.0.0.1:7777/conf</HTTP_URL>
+					<RTDB_SYNC_IP>127.0.0.1</RTDB_SYNC_IP>
+					<RTDB_SYNC_PORT>9527</RTDB_SYNC_PORT>
+				</SERVER>
+			</DOMAIN_SERVER>
+			<DOMAIN_SERVER domain_id = "2" domain_name = "xxx-sc">
+				<SERVER>
+					<HTTP_URL>http://127.0.0.1:7777/conf</HTTP_URL>
+					<RTDB_SYNC_IP>127.0.0.1</RTDB_SYNC_IP>
+					<RTDB_SYNC_PORT>9527</RTDB_SYNC_PORT>
+				</SERVER>
+			</DOMAIN_SERVER>
+			<CLIENT_API>
+				<LOG>
+					<LOG_FILE>confdb-sdk.log</LOG_FILE>
+					<LOG_LEVEL>1</LOG_LEVEL>
+					<FILE_MAX_SIZE_MB>10</FILE_MAX_SIZE_MB>
+					<ROLLING_FILE_NUM>10</ROLLING_FILE_NUM>
+				</LOG>
+			</CLIENT_API>
+		</MODEL>
+		<!--历史库-->
+		<MODEL name = "tsdb">
+			<DOMAIN_SERVER domain_id="1">
+				<SERVER server_id="1">
+					<SCHEMA>http</SCHEMA>
+					<USERNAME>admin</USERNAME>
+					<PASSWORD>123456</PASSWORD>
+					<database>tsdb_iscs</database>
+					<PORT>8086</PORT>
+					<TIMEOUT>60000</TIMEOUT>
+					<HEART_BEAT_INTERNAL>1000</HEART_BEAT_INTERNAL>
+				</SERVER>
+				<SERVER server_id="2">
+					<SCHEMA>http</SCHEMA>
+					<USERNAME>admin</USERNAME>
+					<PASSWORD>123456</PASSWORD>
+					<database>tsdb-iscs</database>
+					<PORT>8086</PORT>
+					<TIMEOUT>60000</TIMEOUT>
+					<HEART_BEAT_INTERNAL>1000</HEART_BEAT_INTERNAL>
+				</SERVER>
+			</DOMAIN_SERVER>
+			<CLIENT_API>
+				<LOG>
+					<LOG_FILE>tsdb-sdk.log</LOG_FILE>
+					<LOG_LEVEL>1</LOG_LEVEL>
+					<FILE_MAX_SIZE_MB>10</FILE_MAX_SIZE_MB>
+					<ROLLING_FILE_NUM>10</ROLLING_FILE_NUM>
+				</LOG>
+			</CLIENT_API>
+		</MODEL>
+
+		<!--前置-->
+		<MODEL name = "FES">
+		</MODEL>
+		<!--应用-->
+		<MODEL name = "App">
+		</MODEL>
+		<!--HMI-->
+		<MODEL name = "HMI">
+		</MODEL>
+	</MODEL_LIST>
+</SYSTEMCFG>

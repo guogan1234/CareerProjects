@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.permSecurityId}}">
+            <td>{{value.permSecurityId}}</td>
+            <!--<td><a href="#" name="userName" data-operate="detail" data-toggle="modal" data-target="#userModal" data-idp="userId" data-id="{{value.userId}}">{{value.userName}}</a></td>-->
+            <td>{{value.permPasswordMinLength}}</td>
+            <td>{{value.permPasswordMinLetr}}</td>
+            <td>{{value.permPasswordMinNum}}</td>
+            <td>{{value.permAccountMaxLock}}秒</td>
+            <td>{{value.permAccountLockTimer}}秒</td>
+            <td>{{value.permAccountInvalidTimer}}秒</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.permSecurityId}}">删除 </a>|
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#permSecurityModal" data-idp="permSecurityId" data-id="{{value.permSecurityId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script id="list" type="text/html">
+    {{each list value i}}
+        <tr data-id="{{value.groupId}}">
+            <td>{{value.groupId}}</td>
+            <td><a href="#" name="groupName" data-operate="detail" data-toggle="modal" data-target="#permGroupDefModal" data-idp="groupId" data-id="{{value.groupId}}">{{value.groupName}}</a></td>
+            <td>{{value.groupLevel}}</td>
+            <td>{{value.groupDesc}}</td>
+            <td>{{value.groupPic1}}</td>
+            <td>{{value.groupPic2}}</td>
+            <td>{{value.groupPic3}}</td>
+            <td>
+                <a href="#" name="del" data-id="{{value.groupId}}">删除 </a>
+                <a href="#" data-toggle="modal" data-operate="update" data-target="#permGroupDefModal" data-idp="groupId" data-id="{{value.groupId}}"> 修改</a>
+            </td>
+        </tr>
+    {{/each}}
+</script>
+</body>
+</html>

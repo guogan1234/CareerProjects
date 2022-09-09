@@ -1,0 +1,57 @@
+
+一、编译
+
+依赖库 ：
+ 
+mxml-2.11
+
+目录结构 ： 
+
+.
+├── dependences
+│   └── mxml-2.11
+├── src
+└── test
+
+二、安装使用
+
+编译依赖项：
+
+    cd dependences/mxml-2.11/ && make
+
+编译库文件：
+
+    cd src && make 
+
+编译测试程序：
+
+    cd test && make clean && make
+
+说明：
+    
+1、需要设置ISCS_SYSTEM_CONFIG环境变量用于指定配置文件：
+
+    export ISCS_SYSTEM_CONFIG=system_config.xml    
+
+2、依赖 mxml 库 、 pthread 库。
+    
+三、版本履历 
+安装包名称： iRtdbClient_1.0.21700.tar.gz
+发布人： 张关举
+程序版本： 1.0.21700
+发布日期： 2018.06.01
+SVN源码版本： r21700
+
+新增或升级功能列表:
+1） 实现查询结点属性接口；
+2） 实现查询结点接口；
+3） 实现查询结点key列表接口；
+4） 实现查询结点属性key列表接口；
+5） 实现设置结点属性接口；
+6） 实现查询表接口；
+7） 实现删除表接口；
+
+移除的功能列表:
+
+修复缺陷列表:
+

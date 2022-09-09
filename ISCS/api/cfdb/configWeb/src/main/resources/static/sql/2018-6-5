@@ -1,0 +1,1 @@
+alter table conf.dev_tp_tbl add constraint uk_dev_tp_tbl_name unique(dev_tp_name);

@@ -1,0 +1,1 @@
+Qt的Release项目只能调用Qt生成的Release库，Qt的Debug项目只能调用Qt生成的Debug库。

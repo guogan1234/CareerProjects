@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html layout:decorator="common/layout">
+<head>
+    <meta charset="utf-8"/>
+    <title>用户组列表</title>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script th:src="@{/business/lib/require.js}"  data-main="/business/user/permGroupDef.js" ></script>
+    <style>
+        th{
+          text-align: center;
+        }
+        td{
+            text-align: center;
+        }
+        input.error {
+            border: 1px solid red !important;
+        }
+        label.error {
+            padding-left: 16px;
+            padding-top: 4px;
+            font-weight: bold;
+        }
+        span.error {
+            padding-left: 16px;
+            font-weight: bold;
+            color: red;
+        }
+
+        form input.error{
+            color:#F00;
+            border: 1px solid #CE7979;
+            background:#FFF7FA;
+        }
+        form select.error{
+            color:#F00;
+            border: 1px solid #CE7979;
+            background:#FFF7FA;
+        }
+
+        form label.error{
+            color:#F00;
+        }
+
+
+
+    </style>
+</head>
+<body class="">
+<div layout:fragment="content">
+    <div th:include="config/user/permGroupDefTemplate :: html"></div>
+    <div id="main" role="main">
+        <div id="ribbon">
+				<span class="ribbon-button-alignment">
+					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title=" Warning! This will reset all your widget settings." data-html="true">
+						<i class="fa fa-refresh"></i>
+					</span>
+				</span>
+            <ol class="breadcrumb">
+                <li>系统数据</li><li>用户组列表</li>
+            </ol>
+        </div>
+        <div id="content">
+            <section id="widget-grid" class="">
+                <div class="row" >
+                    <article class="col-sm-12">
+                        <div class="jarviswidget jarviswidget-color-blueDark"  data-widget-editbutton="false">
+                            <header>
+                                <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                                <h2>用户组列表</h2>
+                            </header>
+                                <div class="jarviswidget-editbox">
+                                </div>
+                                <div class="widget-body">
+                                    <div class="row" id="search">
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="groupId" placeholder="用户组ID" />
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="groupName" placeholder="用户组名称" />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a href="#" class="btn btn-info" id="searchPermGroupDef">查询</a>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-sm-4">
+                                            <a href="javascript:void(0);" class="btn btn-success" data-toggle="modal" data-operate="add" data-target="#permGroupDefModal">新增</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="table-responsive" style="height:700px; overflow:scroll;">
+                                            <table class="table table-bordered" id="permGroupDefTbl">
+                                                <thead>
+                                                <tr>
+                                                    <th>用户组ID</th>
+                                                    <th>用户组名称</th>
+                                                    <th>用户组级别</th>
+                                                    <th>用户组描述</th>
+                                                    <th>屏1登录画面</th>
+                                                    <th>屏2登录画面</th>
+                                                    <th>屏3登录画面</th>
+                                                    <th colspan="3">操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="modal fade" id="permGroupDefModal" tabindex="-1" role="dialog" aria-labelledby="permGroupDefModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="permGroupDefModalLabel">新增</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="widget-body">
+                        <form class="form-horizontal" id="permGroupDefFormModal">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">用户组ID:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" data-sdv="" required="true" digits="true"   name="groupId" placeholder="" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">用户组名称:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" data-sdv="" required="true" placeholder="" name="groupName" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">用户组级别:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" data-sdv="" required="true" placeholder="" name="groupLevel" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">用户组描述:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" data-sdv="" required="true" placeholder="" name="groupDesc" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">屏1登录画面:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" data-sdv="" required="true" placeholder="" name="groupPic1" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">屏2登录画面:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" data-sdv="" required="true" placeholder="" name="groupPic2" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">屏3登录画面:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" data-sdv="" required="true" placeholder="" name="groupPic3" type="text"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="permGroupDefSaveModal">保存</button>
+                    <button type="button" class="btn btn-primary" style="display: none;" id="permGroupDefUpdateModal">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
