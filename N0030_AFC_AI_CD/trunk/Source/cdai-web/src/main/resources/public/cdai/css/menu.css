@@ -1,0 +1,11 @@
+.global-title {
+    font-size: 27px;
+    color: #474544;
+    float: left;
+    text-align: center;
+    width: 68%;
+}
+.global-title span {
+    vertical-align: sub;
+    color: white;
+}

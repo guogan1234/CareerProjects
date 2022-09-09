@@ -1,0 +1,17 @@
+
+<config>    
+    <deamon>yes</deamon> # yes , no : only in linux
+    <pidFilePath>/tmp/.pidDataSimulator</pidFilePath>  
+    <csvFilesDir>csvFiles</csvFilesDir>
+    <checkTime>01:00:00</checkTime>
+    <checkInterval>86400</checkInterval>  # seconds 
+        
+    <pgsql>
+        <host>127.0.0.1</host>
+        <port>5432</port>
+        <user>postgres</user>
+        <password>postgres</password>
+        <dbName>postgres</dbName>
+    </pgsql>
+        
+</config>        

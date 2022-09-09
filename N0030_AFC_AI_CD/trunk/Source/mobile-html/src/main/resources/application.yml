@@ -1,0 +1,39 @@
+server:
+    port: 4066
+spring:
+    freemarker:
+        allow-request-override: false
+        cache: true
+        check-template-location: true
+        charset: UTF-8
+        content-type: text/html
+        expose-request-attributes: false
+        expose-session-attributes: false
+        expose-spring-macro-helpers: true
+        template-loader-path: classpath:/templates/
+        suffix: .ftl
+
+conf:
+  wechat:
+    chengdu:
+          corpid: ww459483b92c637742
+          corpsecret: c7RXcFkHovcdEJO_Noy67Emj3PfwNA3gVOvH_OaxnRY
+          agentId: 1000071
+          #DEV Config
+#      corpid: ww958c5f9d94ed052c
+#      corpsecret: fLg_YT6auVuQHJoDfrAw0f672KEq5ooltHbTcPAnuOw
+#      agentId: 1000002
+
+zuul:
+    routes:
+        business:
+            path: /resource/**
+            url: http://112.124.51.202:4060               #dev.avantport.com
+
+    service:
+        path: /service/**
+        url: http://112.124.51.202:4065                        #112.124.51.202
+
+logging:
+    file: log-afcai-wechat.log
+    level.com.avp.mems.ui.mobile.html: DEBUG

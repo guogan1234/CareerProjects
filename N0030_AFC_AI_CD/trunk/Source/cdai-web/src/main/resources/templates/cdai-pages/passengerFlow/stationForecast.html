@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html layout:decorator="layout/layout-base"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title th:text="${cdai_title}"></title>
+    <script th:src="@{/static/lib/common-external.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/cdai/css/scts_tables.css}">
+    <style>
+        .buttonStyle {
+            font-size: 12px !important;
+            position: absolute !important;
+            left: 33px;
+            top: 15px;
+            display: block;
+            z-index: 2;
+            font-weight: 700;
+            /*padding: 1px 61px 3px 7px;*/
+            left: 80%;
+            display: none; /*隐藏图标*/
+        }
+
+    </style>
+    <title>显示数据标签</title>
+
+</head>
+<body onload="pageSetUp()">
+
+<section id="widget-grid" class="" layout:fragment="content">
+
+    <div class="box-header" th:include="layout/alertMsg :: msg"
+         style="padding-top: 0px; padding-bottom: 0px; margin-left: 13px; margin-right: 13px;"></div>
+
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0"
+             data-widget-editbutton="false">
+            <header>
+					<span class="widget-icon"> <i class="fa fa-table"></i>
+					</span>
+                <h2>车站分时客流预测</h2>
+            </header>
+
+            <div style="padding-bottom: 10px">
+                <div class="widget-body no-padding">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="station" class="xmbh_top" id="cheCorp">车站</label>
+                                <select class="form-control" id="station" multiple>
+                                    <option></option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <label for="inOutStation" class="xmbh_top" id="cheCorp1">进出站</label>
+                                <select class="form-control" id="inOutStation">
+
+                                </select>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <label for="date" class="xmbh_top">运营日</label>
+                                <div class="input-group">
+                                    <input class="form-control date-picker" id="date"
+                                           type="text" data-date-format="yyyy/mm/dd"/> <span
+                                        class="input-group-addon"
+                                        onclick="document.getElementById('date').focus();"> <i
+                                        class="fa fa-calendar bigger-110"></i>
+													</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="time" class="xmbh_top" id="time">时间周期</label>
+                                <select class="form-control" id="timeperiod">
+
+                                </select>
+                            </div>
+
+                            <div class="col-sm-2"
+                                 sec:authorize="hasAuthority('NJPB-WEB-ESTATE-EQUIPMENT-NEW')">
+                                <button class="btn-search" style="margin-top: 35px; height: 30px"
+                                        onclick="search()">查询
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="test1" class="col-md-4">
+                <button class="buttonStyle" onclick="zoom1()">切换视图</button>
+                <div id="container1"></div>
+            </div>
+
+            <div id="test2" class="col-md-4">
+                <button class="buttonStyle" onclick="zoom2()">切换视图</button>
+                <div id="container2"></div>
+            </div>
+
+            <div id="test3" class="col-md-4">
+                <button class="buttonStyle" onclick="zoom3()">切换视图</button>
+                <div id="container3"></div>
+            </div>
+        </div>
+
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h5 class="modal-title" id="myModalLabel">
+
+                        </h5>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="confirmModal()">
+                                确认
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+</section>
+
+<div layout:fragment="scripts">
+    <script th:src="@{/static/lib/datepicker/bootstrap-datepicker.js}"></script>
+
+    <script>
+
+        $('#dashboardMenu').removeClass('active');
+        $('#left-wire').addClass('active').parent().css('display', 'block').parent().addClass('active open');
+        initLeftActive('station_forecast');
+
+        $("#date").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+    </script>
+
+    <script th:src="@{/cdai/js/passengerFlow/stationForecast.js}"></script>
+</div>
+
+</body>
+</html>

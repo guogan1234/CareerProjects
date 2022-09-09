@@ -1,0 +1,30 @@
+<% for(var i in this){ var item=this[i]; %>
+		<li class="mui-table-view-cell mui-media" workorder-id="<%=(item.id)%>" workorder-type="<%=(item.type_id)%>">
+		<div class="mui-pull-left">
+				<img class="mui-media-object mui-pull-left <%=(item.type_en)%>"/>
+			</div>
+			<div class="mui-media-body <%=(item.type_en)%>" >
+				<div class="mui-table">
+					<div class="mui-table-cell mems-workorder">
+						<h5 class="mems-workorder-header <%=(item.type_en)%> ">
+							<div class='mui-ellipsis mui-pull-left mui-col-xs-4 wo-type'>
+								<%=(item.type_cn)%>
+							</div>
+							<div class="mui-ellipsis mui-pull-left mui-col-xs-4 wo-type">
+								<div class="arrow-left"></div>
+							</div>
+							<div class='mui-ellipsis mui-pull-left mui-col-xs-4 wo-status status-<%=(item.statusId)%>'>
+								<i id="status_<%=(item.id)%>" class="mui-tab-label mui-pull-right"><%=(item.status)%></i>
+							</div>
+						</h5>
+						<p><span class="mems-workorder-item">设备：</span><%=(item.line)%> <%=(item.station)%> <%=(item.device_no)%></p>
+						<p><span class="mems-workorder-item">报修人：</span><%=(item.creator)%></p>
+						<p class="mui-ellipsis"><span class="mems-workorder-item">故障现象：</span><span id="fault_type_<%=(item.id)%>"><%=(item.fault_type)%></span></p>
+						<p><span class="mems-workorder-item">更新时间：</span><%=(item.last_update_date)%></p>
+						<hr />
+						<p><span class="mui-h6 mui-pull-left">查看详情</span></p>
+					</div>
+				</div>
+			</div>
+		</li>
+<% } %>

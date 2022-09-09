@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>首页</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Basic Styles -->
+    <link rel="stylesheet" th:href="@{/static/lib/smart_admin/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/lib/smart_admin/css/font-awesome.min.css}">
+
+    <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+    <link rel="stylesheet" th:href="@{/static/lib/smart_admin/css/smartadmin-production-plugins.min.css}">
+    <link rel="stylesheet" th:href="@{/static/lib/smart_admin/css/smartadmin-production.min.css}">
+    <link rel="stylesheet" th:href="@{/static/lib/smart_admin/css/smartadmin-skins.min.css}">
+
+    <!-- SmartAdmin RTL Support  -->
+    <link rel="stylesheet" th:href="@{/static/lib/smart_admin/css/smartadmin-rtl.min.css}">
+    <link rel="stylesheet" th:href="@{/static/lib/smart_admin/css/demo.min.css}">
+
+    <!-- Common Styles -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/lib/css/common.css}">
+
+    <!-- bootstrap3-dialog -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/lib/bootstrap3-dialog/css/bootstrap-dialog.min.css}">
+    <!--date-->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/lib/date/css/bootstrap-datetimepicker.css}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/cdai/css/menu.css}">
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" th:href="@{/static/lib/image/favicon/favicon.ico}" type="image/x-icon">
+    <link rel="icon" th:href="@{/static/lib/image/favicon/favicon.ico}" type="image/x-icon">
+    <link rel="stylesheet" href="/cdai/css/scts_tables.css"/>
+
+    <script th:src="@{/static/lib/jQuery/jQuery-2.1.4.min.js}"></script>
+    <script th:src="@{/static/lib/vue.min.js}"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        //        BASE_URL = [[
+        //        @
+        //        {#
+        //        }
+        //        ]]
+        //        ;
+        /*]]>*/
+    </script>
+
+
+</head>
+
+<body class="smart-style-4">
+<span sec:authentication="principal" id="userId"></span>
+
+<!-- HEADER -->
+<header id="header">
+    <div id="logo-group">
+
+        <!-- PLACE YOUR LOGO HERE -->
+        <a href="/cdai/dashboard" class="logo">
+            <span id="logo">
+                <img src="/static/lib/image/logocd.png" alt="smart watt">
+			</span>
+        </a>
+
+        <!-- END LOGO PLACEHOLDER -->
+    </div>
+
+    <div class="global-title">
+        <span>成都地铁智慧运营</span>
+    </div>
+
+    <!-- pulled right: nav area -->
+    <div class="pull-right">
+
+        <!-- collapse menu button -->
+        <div id="hide-menu" class="btn-header pull-right">
+				<span>
+                    <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i
+                            class="fa fa-reorder"></i></a>
+                </span>
+        </div>
+        <!-- end collapse menu -->
+
+        <!-- logout button -->
+        <div id="logout" class="btn-header transparent pull-right">
+				<span>
+                    <a th:href="@{/lout}" title="Sign Out"><i class="fa fa-sign-out"></i></a>
+				</span>
+        </div>
+        <!-- end logout button -->
+
+        <!-- user info button -->
+        <div class="btn-header transparent pull-right">
+				<span>
+                    <a href="javascript:void(0);" title="User Info" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user">
+                            <span class="hidden-xs"
+                                  sec:authentication="userAuthentication.details[principal][userName]">
+                            </span>
+					    </i>
+                    </a>
+					<ul class="dropdown-menu" style="left: inherit; right: 30px;">
+						<!-- User image -->
+						<li class="user-header textCenter">
+                            <img th:src="@{/static/lib/image/user2-160x160.jpg}" class="img-circle" alt="User Image"
+                                 style="width: 100px"><br>
+							<br>
+							<p class="textCenter">
+							</p></li>
+                        <!-- Menu Footer-->
+						<li class="user-footer">
+							<div class="textCenter">
+								<a href="#" class="btn btn-info btn-flat"
+                                   id="linkChangePassword_multi" data-toggle="modal">修改密码</a>
+							</div>
+						</li>
+					</ul>
+				</span>
+        </div>
+
+        <!-- fullscreen button -->
+        <div id="fullscreen" class="btn-header transparent pull-right">
+				<span>
+                    <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen">
+                        <i class="fa fa-arrows-alt"></i>
+                    </a>
+				</span>
+        </div>
+        <!-- end fullscreen button -->
+    </div>
+    <!-- end pulled right: nav area -->
+</header>
+<!-- END HEADER -->
+<aside id="left-panel">
+    <nav>
+        <ul>
+            <li class="active" id="dashboardMenu">
+                <a th:href="@{/#}">
+                    <i class="fa fa-lg fa-fw fa-home"></i>
+                    <span class="menu-item-parent">首页</span>
+                </a>
+            </li>
+
+            <li sec:authorize="hasAuthority('NJPB-WEB-REPORT')">
+                <a th:href="@{#}">
+                    <i class="fa fa-lg fa-fw fa-pencil-square-o"></i>
+                    <span class="menu-item-parent">客流分析</span>
+                </a>
+                <ul>
+                    <li class="" id="station_contrast" sec:authorize="hasAuthority('NJPB-WEB-REPORT-WORKPOINTS')"><a
+                            th:href="@{/passengerFlow/stationContrast/}" title="车站分时客流对比"> <span
+                            class="menu-item-parent">车站分时客流对比</span>
+                    </a>
+                    </li>
+                    <li class="" id="station_forecast" sec:authorize="hasAuthority('NJPB-WEB-REPORT-WORKPOINTS')"><a
+                            th:href="@{/passengerFlow/stationForecast/}" title="车站分时客流预测"> <span
+                            class="menu-item-parent">车站分时客流预测</span>
+                    </a>
+                    </li>
+                    <li class="" id="stationTotal_contrast" sec:authorize="hasAuthority('NJPB-WEB-REPORT-WORKPOINTS')">
+                        <a
+                                th:href="@{/passengerFlow/stationTotalContrast/}" title="车站累计客流对比"> <span
+                                class="menu-item-parent">车站累计客流对比</span>
+                        </a>
+                    </li>
+                    <li class="" id="stationTotal_forecast" sec:authorize="hasAuthority('NJPB-WEB-REPORT-WORKPOINTS')">
+                        <a
+                                th:href="@{/passengerFlow/stationTotalForecast/}" title="车站累计客流预测"> <span
+                                class="menu-item-parent">车站累计客流预测</span>
+                        </a>
+                    </li>
+                    <li class="" id="line_contrast" sec:authorize="hasAuthority('NJPB-WEB-REPORT-WORKPOINTS')"><a
+                            th:href="@{/passengerFlow/lineContrast/}" title="线路分时客流对比"> <span
+                            class="menu-item-parent">线路分时客流对比</span>
+                    </a>
+                    </li>
+                    <li class="" id="line_forecast" sec:authorize="hasAuthority('NJPB-WEB-REPORT-WORKPOINTS')"><a
+                            th:href="@{/passengerFlow/lineForecast/}" title="线路分时客流预测"> <span
+                            class="menu-item-parent">线路分时客流预测</span>
+                    </a>
+                    </li>
+                    <li class="" id="lineTotal_contrast" sec:authorize="hasAuthority('NJPB-WEB-REPORT-WORKPOINTS')"><a
+                            th:href="@{/passengerFlow/lineTotalContrast/}" title="线路累计客流对比"> <span
+                            class="menu-item-parent">线路累计客流对比</span>
+                    </a>
+                    </li>
+                    <li class="" id="lineTotal_forecast" sec:authorize="hasAuthority('NJPB-WEB-REPORT-WORKPOINTS')"><a
+                            th:href="@{/passengerFlow/lineTotalForecast/}" title="线路累计客流预测"> <span
+                            class="menu-item-parent">线路累计客流预测</span>
+                    </a>
+                    </li>
+
+                    <li class="" id="ticket_contrast" sec:authorize="hasAuthority('NJPB-WEB-REPORT')"><a
+                            th:href="@{/passengerFlow/ticketContrast/}" title="票卡分时对比"> <span
+                            class="menu-item-parent">票卡分时对比</span> </a>
+                    </li>
+                    <li class="" id="ticket_total" sec:authorize="hasAuthority('NJPB-WEB-REPORT')"><a
+                            th:href="@{/passengerFlow/ticketTotal/}" title="票卡累计对比"> <span
+                            class="menu-item-parent">票卡累计对比</span> </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li sec:authorize="hasAuthority('NJPB-WEB-STOCK')">
+                <a th:href="@{#}">
+                    <i class="fa fa-lg fa-fw fa-cube"></i>
+                    <span class="menu-item-parent">故障分析</span>
+                </a>
+                <ul>
+                    <li id="typical_list" class="" sec:authorize="hasAuthority('NJPB-WEB-STOCK-IN')"><a
+                            th:href="@{/fault/typicalFault/}" title="典型故障分析 "> <span
+                            class="menu-item-parent">典型故障分析</span> </a>
+                    </li>
+
+                    <li id="module_list" class="" sec:authorize="hasAuthority('NJPB-WEB-STOCK-IN')"><a
+                            th:href="@{/fault/moduleFault/}" title="模块故障分析"> <span
+                            class="menu-item-parent">模块故障分析</span> </a>
+                    </li>
+
+                    <li id="device_list" class="" sec:authorize="hasAuthority('NJPB-WEB-STOCK-IN')"><a
+                            th:href="@{/fault/deviceFault/}" title="设备故障分析"> <span
+                            class="menu-item-parent">设备故障分析</span> </a>
+                    </li>
+
+                    <li id="rate_list" class="" sec:authorize="hasAuthority('NJPB-WEB-STOCK-IN')"><a
+                            th:href="@{/fault/deviceRate/}" title="设备宕机率分析"> <span
+                            class="menu-item-parent">设备宕机分析</span> </a>
+                    </li>
+
+                    <li id="fault_list" class="" sec:authorize="hasAuthority('NJPB-WEB-STOCK-IN')"><a
+                            th:href="@{/fault/faultFactor/}" title="故障因子分析"> <span
+                            class="menu-item-parent">故障因子分析</span> </a>
+                    </li>
+
+                    <li id="faultTime_list" class="" sec:authorize="hasAuthority('NJPB-WEB-STOCK-IN')"><a
+                            th:href="@{/fault/faultRepairTime/}" title="故障修复时间分析"> <span
+                            class="menu-item-parent">故障修复时间分析</span> </a>
+                    </li>
+
+                    <li id="station_list" class="" sec:authorize="hasAuthority('NJPB-WEB-STOCK-IN')"><a
+                            th:href="@{/fault/stationMap/}" title="车站地图报警"> <span class="menu-item-parent">车站地图报警</span>
+                    </a>
+                    </li>
+                </ul>
+            </li>
+            <!--<li sec:authorize="hasAuthority('NJPB-WEB-BASIC')">-->
+            <!--<a th:href="@{#}">-->
+            <!--<i class="fa-lg fa-fw glyphicon glyphicon-tasks"></i>-->
+            <!--<span class="menu-item-parent">能耗分析节能</span>-->
+            <!--</a>-->
+            <!--<ul>-->
+
+            <!--<li id="estateType_list" class="" sec:authorize="hasAuthority('NJPB-WEB-BASIC-SUPPLIER')"><a-->
+            <!--th:href="@{/energy/energySaving}" title="能耗分析节能"> <span-->
+            <!--class="menu-item-parent">能耗分析节能</span> </a>-->
+            <!--</li>-->
+
+            <!--</ul>-->
+            <!--</li>-->
+
+            <li sec:authorize="hasAuthority('NJPB-WEB-SYSTEM')">
+                <a th:href="@{#}">
+                    <i class="fa fa-lg fa-fw fa-cog"></i>
+                    <span class="menu-item-parent">耗材分析预测</span>
+                </a>
+                <ul>
+                    <li id="user_list" class="" sec:authorize="hasAuthority('NJPB-WEB-SYSTEM-USER')"><a
+                            th:href="@{/consumptive/consumptionAnalysis}"
+                            title="耗材分析"> <span
+                            class="menu-item-parent">耗材分析</span> </a></li>
+
+                    <li id="con_list" class="" sec:authorize="hasAuthority('NJPB-WEB-SYSTEM-USER')"><a
+                            th:href="@{/consumptive/consumptionForecast}"
+                            title="耗材预测"> <span
+                            class="menu-item-parent">耗材预测</span> </a></li>
+                    <!--<li id="message_list" class="" sec:authorize="hasAuthority('NJPB-WEB-SYSTEM-MESSAGE')"><a-->
+                    <!--th:href="@{/consumptive/consumablesTrend}" title="耗材去向分析"> <span-->
+                    <!--class="menu-item-parent">耗材去向分析</span> </a></li>-->
+                    <!--<li id="param_list" class="" sec:authorize="hasAuthority('NJPB-WEB-SYSTEM-PARAM')"><a-->
+                    <!--th:href="@{/consumptive/deviceKeep}"-->
+                    <!--title="保养计划生成"> <span-->
+                    <!--class="menu-item-parent">保养计划生成</span> </a></li>-->
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <span class="minifyme" data-action="minifyMenu"> <i
+            class="fa fa-arrow-circle-left hit"></i>
+		</span>
+
+</aside>
+<!-- END NAVIGATION -->
+
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+
+    <!-- RIBBON -->
+    <div id="ribbon">
+
+        <!-- breadcrumb -->
+        <ol class="breadcrumb">
+            <li><i class="ace-icon fa fa-lg fa-home home-icon"></i>
+                <a th:href="@{/#}"/>首页
+            </li>
+            <div th:with="condition=${menu_title_parent}" th:remove="tag">
+                <li th:if="${condition}"><span th:text="${menu_title_parent}"></span></li>
+            </div>
+            <li><span th:text="${cdai_title}"></span></li>
+        </ol>
+        <!-- end breadcrumb -->
+    </div>
+    <!-- END RIBBON -->
+
+    <!-- MAIN CONTENT -->
+    <div id="content">
+        <div class="row">
+            <section class="content" layout:fragment="content"></section>
+            <div th:include="layout/changePass :: pwd"></div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+</div>
+<!-- END MAIN PANEL -->
+
+<!--PAGE FOOTER -->
+<!--<div class="page-footer" style="position: fixed; bottom:0">-->
+<!--<div class="row">-->
+<!--<div class="col-xs-12 col-sm-6">-->
+<!--<span class="txt-color-white">南京公共自行车移动运维 1.2.0 </span>-->
+<!--</div>-->
+
+<!--<div class="col-xs-6 col-sm-6 text-right hidden-xs">-->
+<!--<div class="txt-color-white inline-block">-->
+<!--<strong>Copyright &copy; 2017-->
+<!--<a href="http://www.avantport.com" target="_blank"> njpb Intelligient</a>.-->
+<!--</strong> All rights reserved.-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; END PAGE FOOTER &ndash;&gt;-->
+<!--================================================== -->
+
+<!-- Ajax api js -->
+<script th:src="@{/static/lib/config.js}"></script>
+<script th:src="@{/static/lib/ajax-api.min.js}"></script>
+
+<!-- Common js -->
+<!--<script th:src="@{/static/lib/common-external.js}"></script>-->
+<!--<script th:src="@{/static/lib/constants.js}"></script>-->
+
+<!-- PACE -->
+<!--<script th:src="@{/static/lib/smart_admin/js/plugin/pace/pace.min.js}"></script>-->
+
+<!-- JQUERY UI -->
+<script
+        th:src="@{/static/lib/smart_admin/js/libs/jquery-ui-1.10.3.min.js}"></script>
+
+<!-- IMPORTANT: APP CONFIG -->
+<script th:src="@{/static/lib/smart_admin/js/app.config.js}"></script>
+
+<!-- BOOTSTRAP JS -->
+<script
+        th:src="@{/static/lib/smart_admin/js/bootstrap/bootstrap.min.js}"></script>
+
+<!-- CUSTOM NOTIFICATION -->
+<script
+        th:src="@{/static/lib/smart_admin/js/notification/SmartNotification.min.js}"></script>
+
+<!--JARVIS WIDGETS -->
+<script
+        th:src="@{/static/lib/smart_admin/js/smartwidgets/jarvis.widget.min.js}"></script>
+
+<!-- EASY PIE CHARTS -->
+<script
+        th:src="@{/static/lib/smart_admin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js}"></script>
+
+<!-- SPARKLINES -->
+<!--<script-->
+<!--th:src="@{/static/lib/smart_admin/js/plugin/sparkline/jquery.sparkline.min.js}"></script>-->
+
+<!-- JQUERY VALIDATE -->
+<!--<script-->
+<!--th:src="@{/static/lib/smart_admin/js/plugin/jquery-validate/jquery.validate.min.js}"></script>-->
+
+<!-- JQUERY MASKED INPUT -->
+<!--<script-->
+<!--th:src="@{/static/lib/smart_admin/js/plugin/masked-input/jquery.maskedinput.min.js}"></script>-->
+
+<!-- JQUERY SELECT2 INPUT -->
+<script
+        th:src="@{/static/lib/smart_admin/js/plugin/select2/select2.min.js}"></script>
+
+<!--JQUERY UI + Bootstrap Slider -->
+<script
+        th:src="@{/static/lib/smart_admin/js/plugin/bootstrap-slider/bootstrap-slider.min.js}"></script>
+
+<!--browser msie issue fix -->
+<script
+        th:src="@{/static/lib/smart_admin/js/plugin/msie-fix/jquery.mb.browser.min.js}"></script>
+
+<!--FastClick: For mobile devices -->
+<script
+        th:src="@{/static/lib/smart_admin/js/plugin/fastclick/fastclick.min.js}"></script>
+
+<!-- Demo purpose only -->
+<script th:src="@{/static/lib/smart_admin/js/demo.min.js}"></script>
+
+<!-- MAIN APP JS FILE -->
+<script th:src="@{/static/lib/smart_admin/js/app.min.js}"></script>
+
+<!-- SmartChat UI : plugin -->
+<script
+        th:src="@{/static/lib/smart_admin/js/smart-chat-ui/smart.chat.ui.min.js}"></script>
+<script
+        th:src="@{/static/lib/smart_admin/js/smart-chat-ui/smart.chat.manager.min.js}"></script>
+
+<script
+        th:src="@{/static/lib/smart_admin/js/plugin/moment/moment.min.js}"></script>
+<script
+        th:src="@{/static/lib/smart_admin/js/plugin/chartjs/chart.min.js}"></script>
+
+
+<script
+        th:src="@{/static/lib/date/js/bootstrap-datetimepicker.js}"></script>
+
+<!-- bootstrap3-dialog -->
+<!--<script-->
+<!--th:src="@{/static/lib/bootstrap3-dialog/js/bootstrap-dialog.min.js}"></script>-->
+<script th:src="@{/static/lib/Highcharts-4.2.3/js/highcharts.js}"></script>
+<script th:src="@{/static/lib/Highcharts-4.2.3/js//modules/exporting.js}"></script>
+<script th:src="@{/static/lib/Highcharts-4.2.3/js//highcharts-3d.js}"></script>
+<script th:src="@{https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js}"></script>
+
+
+<script th:src="@{/cdai/js/common/constants.js}"></script>
+<script th:src="@{/cdai/js/common/ajax-api.js}"></script>
+<script th:src="@{/cdai/js/common/common.js}"></script>
+
+<script>
+    Highcharts.setOptions({global: {useUTC: false}});
+</script>
+<div layout:fragment="scripts"></div>
+</body>
+</html>

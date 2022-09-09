@@ -1,0 +1,63 @@
+
+<config>
+    <deamon>yes</deamon> # yes , no : in linux
+    <pidFilePath>/home/afcAI/afcAIAnalysis/.pidfile</pidFilePath>
+    <logFile enable="true"> # enable : true,false 
+        <logLevel>info</logLevel> # debug,info,warn,error,critical   
+        <logFilePath>/home/afcAI/afcAIAnalysis/logs/msg.log</logFilePath>
+        <fileMaxSize>10</fileMaxSize> # MB
+        <maxFileNum>5</maxFileNum>
+    </logFile>
+    
+    <checkTime>01:00:00</checkTime>
+    <checkInterval>86400</checkInterval>  # seconds 
+    <sourDataTimeBegin>2017-01-01 00:00:00</sourDataTimeBegin> 
+    <lastStatusFile>/home/afcAI/afcAIAnalysis/lastStatus</lastStatusFile>
+    <cacheFile>/home/afcAI/afcAIAnalysis/cacheFile</cacheFile>
+    
+    <databases>
+        <db2>
+            <host>127.0.0.1</host>
+            <port>50000</port>
+            <user></user>
+            <password></password>
+            <dbName></dbName>
+        </db2>
+        
+        <tsdb max_per_fetch="50000" max_per_commit="10000">
+            <host>127.0.0.1</host>
+            <port>8086</port>
+            <user>root</user>
+            <password>root</password>
+            <dbName>AfcData</dbName>
+        </tsdb>
+        
+        <pgsql>
+            <host>127.0.0.1</host>
+            <port>5432</port>
+            <user></user>
+            <password></password>
+            <dbName></dbName>
+        </pgsql>
+        
+        <pgsql_stock>
+            <host>127.0.0.1</host>
+            <port>5432</port>
+            <user></user>
+            <password></password>
+            <dbName></dbName>
+        </pgsql_stock>
+        
+    </databases>
+    
+    <dataPredict>
+        <predictWeeks>1</predictWeeks>     
+    </dataPredict>
+    
+    <deviceMonitor enable="true" interval="60" >
+        <coreSwitch>
+            <host ip="192.168.1.2" name="host2"/>            
+        </coreSwitch>
+    </deviceMonitor>
+        
+</config>        

@@ -1,0 +1,74 @@
+URL 菜单配置说明：
+	菜单内容：跳转到页面
+	URL：https://open.weixin.qq.com/connect/oauth2/authorize?appid=ww958c5f9d94ed052c&redirect_uri=http://www.avantport.com:9008/user/reg/skip&response_type=code&scope=snsapi_privateinfo&agentid=1000002&state=129#wechat_redirect
+	URL参数说明：http://work.weixin.qq.com/api/doc#10028
+
+
+	
+第一次加载 LOG
+		
+2017-05-29 02:19:28.303  INFO 12888 --- [nio-9008-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-05-29 02:19:28.303  INFO 12888 --- [nio-9008-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-05-29 02:19:28.324  INFO 12888 --- [nio-9008-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2017-05-29 02:19:28.411  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.html.utils.WorkWeChatUtils     : YYYY ======login======>>false
+2017-05-29 02:19:28.411  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.html.utils.WorkWeChatUtils     : YYYY ======appName======>>"chengdu"
+2017-05-29 02:19:28.412  INFO 12888 --- [nio-9008-exec-1] c.a.mems.ui.mobile.html.utils.HttpUtil   : =====>> https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ww958c5f9d94ed052c&corpsecret=fLg_YT6auVuQHJoDfrAw0f672KEq5ooltHbTcPAnuOw
+null--->[HTTP/1.1 200 OK]
+Error-Code--->[0]
+Error-Msg--->[ok]
+Connection--->[keep-alive]
+Content-Length--->[362]
+Content-Type--->[application/json; charset=UTF-8]
+2017-05-29 02:19:28.965  INFO 12888 --- [nio-9008-exec-1] c.a.mems.ui.mobile.html.utils.HttpUtil   : =====>>  result：{"errcode":0,"errmsg":"ok","access_token":"NYD2o0WNAh0Yt9CS3STQT8C7r8S3SinDOZhC589l49Ic8sKBugXtvr01dK-NdcoHCGZBjrZkPhf9U6HR1Ltr6ftsODJ6evuwk95uJo4Y__D1z0YximL3HJZElgv01jKn3JY9By_lfRIl3Ey0uxLsfcU_W-vQXFJ7PCvkgCL7eQrfTfUp2da6HL5erjz3rOSui1fZ4nU8MwONgODvrVKdNora89bH894oatBPSxAWxwINw2uaoUbHMJq4iRGVdagFRVvN-xpVgUyw6AqXI1d2nTL8gzx7kq6VOwLpy7_vbnA","expires_in":7200}
+2017-05-29 02:19:28.990  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.html.utils.WorkWeChatUtils     : YYYY ======accessToken======>>"NYD2o0WNAh0Yt9CS3STQT8C7r8S3SinDOZhC589l49Ic8sKBugXtvr01dK-NdcoHCGZBjrZkPhf9U6HR1Ltr6ftsODJ6evuwk95uJo4Y__D1z0YximL3HJZElgv01jKn3JY9By_lfRIl3Ey0uxLsfcU_W-vQXFJ7PCvkgCL7eQrfTfUp2da6HL5erjz3rOSui1fZ4nU8MwONgODvrVKdNora89bH894oatBPSxAWxwINw2uaoUbHMJq4iRGVdagFRVvN-xpVgUyw6AqXI1d2nTL8gzx7kq6VOwLpy7_vbnA"
+2017-05-29 02:19:28.990  INFO 12888 --- [nio-9008-exec-1] c.a.mems.ui.mobile.html.utils.HttpUtil   : =====>> https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=NYD2o0WNAh0Yt9CS3STQT8C7r8S3SinDOZhC589l49Ic8sKBugXtvr01dK-NdcoHCGZBjrZkPhf9U6HR1Ltr6ftsODJ6evuwk95uJo4Y__D1z0YximL3HJZElgv01jKn3JY9By_lfRIl3Ey0uxLsfcU_W-vQXFJ7PCvkgCL7eQrfTfUp2da6HL5erjz3rOSui1fZ4nU8MwONgODvrVKdNora89bH894oatBPSxAWxwINw2uaoUbHMJq4iRGVdagFRVvN-xpVgUyw6AqXI1d2nTL8gzx7kq6VOwLpy7_vbnA&code=f23gkODkqlj9mkKnyAMBrM3opkynhHxYnAmudTYF040
+null--->[HTTP/1.1 200 OK]
+Error-Code--->[0]
+Error-Msg--->[ok]
+Connection--->[keep-alive]
+Content-Length--->[238]
+Content-Type--->[application/json; charset=UTF-8]
+2017-05-29 02:19:29.208  INFO 12888 --- [nio-9008-exec-1] c.a.mems.ui.mobile.html.utils.HttpUtil   : =====>>  result：{"UserId":"PengWei","DeviceId":"C48AA2B6-AFDD-48E4-8EA1-0A2AC3F23C07","errcode":0,"errmsg":"ok","user_ticket":"18BcjFHThMZ0XWoxquE5tlEKf91YOA9DxwIoj_yChUMeWXzqNVjDRvh65imVcwZAznj8W9Px3uN_X0C72kMKOIPyDGV_qjmYKSC07CSIi10","expires_in":1800}
+2017-05-29 02:19:29.215  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.html.utils.WorkWeChatUtils     : YYYY ======userInfo======>>{"errcode":0,"user_ticket":"18BcjFHThMZ0XWoxquE5tlEKf91YOA9DxwIoj_yChUMeWXzqNVjDRvh65imVcwZAznj8W9Px3uN_X0C72kMKOIPyDGV_qjmYKSC07CSIi10","UserId":"PengWei","DeviceId":"C48AA2B6-AFDD-48E4-8EA1-0A2AC3F23C07","errmsg":"ok","expires_in":1800}
+2017-05-29 02:19:29.216  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.html.utils.WorkWeChatUtils     : YYYY ======userId======>>"PengWei"
+2017-05-29 02:19:29.216  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.html.utils.WorkWeChatUtils     : YYYY ======userTicket======>>"18BcjFHThMZ0XWoxquE5tlEKf91YOA9DxwIoj_yChUMeWXzqNVjDRvh65imVcwZAznj8W9Px3uN_X0C72kMKOIPyDGV_qjmYKSC07CSIi10"
+2017-05-29 02:19:29.216  INFO 12888 --- [nio-9008-exec-1] c.a.mems.ui.mobile.html.utils.HttpUtil   : =====>> https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=NYD2o0WNAh0Yt9CS3STQT8C7r8S3SinDOZhC589l49Ic8sKBugXtvr01dK-NdcoHCGZBjrZkPhf9U6HR1Ltr6ftsODJ6evuwk95uJo4Y__D1z0YximL3HJZElgv01jKn3JY9By_lfRIl3Ey0uxLsfcU_W-vQXFJ7PCvkgCL7eQrfTfUp2da6HL5erjz3rOSui1fZ4nU8MwONgODvrVKdNora89bH894oatBPSxAWxwINw2uaoUbHMJq4iRGVdagFRVvN-xpVgUyw6AqXI1d2nTL8gzx7kq6VOwLpy7_vbnA&userid=PengWei
+null--->[HTTP/1.1 200 OK]
+Error-Code--->[0]
+Error-Msg--->[ok]
+Connection--->[keep-alive]
+Content-Length--->[343]
+Content-Type--->[application/json; charset=UTF-8]
+2017-05-29 02:19:29.403  INFO 12888 --- [nio-9008-exec-1] c.a.mems.ui.mobile.html.utils.HttpUtil   : =====>>  result：{"errcode":0,"errmsg":"ok","userid":"PengWei","name":"彭伟","department":[1],"position":"","mobile":"18507256660","gender":"1","email":"","avatar":"http://p.qlogo.cn/bizmail/anvH0beNNmruNSSer145pliaVIaDu7eUmKE6bRgaeR1E0ficCJbrBbRg/0","status":1,"isleader":0,"extattr":{"attrs":[]},"english_name":"","telephone":"","enable":1,"hide_mobile":0}
+2017-05-29 02:19:29.406  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.html.utils.WorkWeChatUtils     : YYYY ======user======>>{"errcode":0,"isleader":0,"gender":"1","mobile":"18507256660","errmsg":"ok","telephone":"","avatar":"http://p.qlogo.cn/bizmail/anvH0beNNmruNSSer145pliaVIaDu7eUmKE6bRgaeR1E0ficCJbrBbRg/0","hide_mobile":0,"userid":"PengWei","english_name":"","enable":1,"name":"彭伟","extattr":{"attrs":[]},"position":"","department":[1],"email":"","status":1}
+2017-05-29 02:19:29.410  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.h.controller.IndexController   : 
+---------------------------------------->Key:code		 Value:f23gkODkqlj9mkKnyAMBrM3opkynhHxYnAmudTYF040
+2017-05-29 02:19:29.410  INFO 12888 --- [nio-9008-exec-1] c.a.m.u.m.h.controller.IndexController   : 
+---------------------------------------->Key:state		 Value:129
+---------------------------> Key :conf.wechat.chengdu.corpid		 Value :ww958c5f9d94ed052c
+---------------------------> Key :conf.wechat.chengdu.corpsecret		 Value :fLg_YT6auVuQHJoDfrAw0f672KEq5ooltHbTcPAnuOw
+---------------------------> Key :conf.wechat.chengdu.agentId		 Value :1000002
+2017-05-29 02:19:29.414  INFO 12888 --- [nio-9008-exec-1] c.a.m.ui.mobile.html.conf.Interceptor    : Result View Name : WeChat/user/reg
+
+
+
+第二次加载LOG
+2017-05-29 02:20:13.165 ERROR 12888 --- [nio-9008-exec-6] c.a.m.u.m.html.utils.WorkWeChatUtils     : ====>> User :%7B%22errcode%22%3A0%2C%22isleader%22%3A0%2C%22gender%22%3A%221%22%2C%22mobile%22%3A%2218507256660%22%2C%22errmsg%22%3A%22ok%22%2C%22telephone%22%3A%22%22%2C%22avatar%22%3A%22http%3A%2F%2Fp.qlogo.cn%2Fbizmail%2FanvH0beNNmruNSSer145pliaVIaDu7eUmKE6bRgaeR1E0ficCJbrBbRg%2F0%22%2C%22hide_mobile%22%3A0%2C%22userid%22%3A%22PengWei%22%2C%22english_name%22%3A%22%22%2C%22enable%22%3A1%2C%22name%22%3A%22%E5%BD%AD%E4%BC%9F%22%2C%22extattr%22%3A%7B%22attrs%22%3A%5B%5D%7D%2C%22position%22%3A%22%22%2C%22department%22%3A%5B1%5D%2C%22email%22%3A%22%22%2C%22status%22%3A1%7D
+2017-05-29 02:20:13.166  INFO 12888 --- [nio-9008-exec-6] c.a.m.u.m.html.utils.WorkWeChatUtils     : YYYY ======login======>>true
+2017-05-29 02:20:13.166  INFO 12888 --- [nio-9008-exec-6] c.a.m.u.m.h.controller.IndexController   : 
+---------------------------------------->Key:code		 Value:y4B0j0KTmKA5Isg53fW4bYPTqvkdo6pkxrDYhwT80mc
+2017-05-29 02:20:13.166  INFO 12888 --- [nio-9008-exec-6] c.a.m.u.m.h.controller.IndexController   : 
+---------------------------------------->Key:state		 Value:129
+---------------------------> Key :conf.wechat.chengdu.corpid		 Value :ww958c5f9d94ed052c
+---------------------------> Key :conf.wechat.chengdu.corpsecret		 Value :fLg_YT6auVuQHJoDfrAw0f672KEq5ooltHbTcPAnuOw
+---------------------------> Key :conf.wechat.chengdu.agentId		 Value :1000002
+2017-05-29 02:20:13.166  INFO 12888 --- [nio-9008-exec-6] c.a.m.ui.mobile.html.conf.Interceptor    : Result View Name : WeChat/user/reg
+
+
+
+
+实现原理：
+	第一次使用数据保存到Cookie 中 ，第二次检查是否存在 存在不做任何操作， 不存在操作第一次加载数据
+	
+	
+	

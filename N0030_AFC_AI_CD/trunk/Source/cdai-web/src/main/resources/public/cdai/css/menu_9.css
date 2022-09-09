@@ -1,0 +1,24 @@
+a{ text-decoration:none}
+a:hover{ text-decoration:none}
+.row{ width:96%; margin:auto;}
+.menu_one{
+	 height:120px;
+	 line-height:120px;
+	 text-align:center;
+	 color:#fff;
+	 font-size:1.6em;
+	 font-weight:bold;
+	 border-radius:4px;
+	 margin-top:15px;
+	 }
+.global-title {
+	font-size: 27px;
+	color: #474544;
+	float: left;
+	text-align: center;
+	width: 68%;
+}
+.global-title span {
+	vertical-align: sub;
+	color: white;
+}
